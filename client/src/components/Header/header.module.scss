@@ -1,0 +1,31 @@
+@import "../../styles/variables";
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 60px;
+    padding: 0 15px;
+    border-bottom: $border-color 2px solid;
+    background-color: $primary-color;
+
+    @media only screen and (min-width: map-get($breakpoints, "smaller")) {
+        padding: 0 35px;
+    }
+}
+
+.title {
+    color: $primary-font-color;
+    font-family: $primary-font-style;
+    font-size: map-get($font-sizes, "medium");
+}
+
+.icon {
+    color: $primary-font-color;
+    font-size: map-get($font-sizes, "big");
+
+    &:hover {
+        cursor: pointer;
+    }
+}

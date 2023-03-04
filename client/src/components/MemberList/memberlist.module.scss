@@ -1,0 +1,24 @@
+@import "../../styles/variables";
+
+.wrapper {
+    height: calc(100vh - 60px);
+    width: 300px;
+    min-width: 300px;
+    background-color: $secondary-color;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+        border-right: 10px solid $secondary-color;
+        background-color: $input-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-right: 10px solid $secondary-color;
+        background-color: $border-color;
+    }
+}

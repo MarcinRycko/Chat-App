@@ -1,0 +1,39 @@
+@import "../../styles/variables";
+
+.wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60px;
+    width: 94%;
+    margin: 5px 3%;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: $primary-color;
+        cursor: pointer;
+    }
+}
+
+.icon {
+    color: $grayscale-white;
+    font-size: map-get($font-sizes, "regular");
+
+    &Wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 40px;
+        margin-left: 5px;
+        border-radius: 50%;
+        background-color: $avatar-color;
+    }
+}
+
+.name {
+    margin-left: 10px;
+    color: $primary-font-color;
+    font-family: $primary-font-style;
+    font-size: map-get($font-sizes, "regular");
+}
