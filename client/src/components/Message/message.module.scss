@@ -1,0 +1,103 @@
+@import "../../styles/variables";
+
+.wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 0;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: $secondary-color;
+    }
+}
+
+.icon {
+    color: $grayscale-white;
+    font-size: map-get($font-sizes, "regular");
+
+    &Wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: flex-start;
+        flex-shrink: 0;
+        height: 40px;
+        width: 40px;
+        margin: 0 0 0 15px;
+        border-radius: 50%;
+        background-color: $avatar-color;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.userName {
+    color: $primary-font-color;
+    font-family: $primary-font-style;
+    font-size: map-get($font-sizes, "regular");
+    font-weight: map-get($font-weights, "medium");
+
+    &Server {
+        @extend .userName;
+        color: $avatar-color;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.date {
+    padding-left: 10px;
+    color: $primary-font-color;
+    font-family: $primary-font-style;
+    font-size: map-get($font-sizes, "thin");
+
+    &Server {
+        @extend .date;
+        color: $avatar-color;
+    }
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    min-width: 250px;
+    margin-left: 15px;
+}
+
+.messageHeader {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 0;
+    height: 50%;
+    padding: 0 0 5px 0;
+}
+
+.messageText {
+    display: block;
+    padding: 0 15px 0 0;
+    color: $primary-font-color;
+    font-family: $primary-font-style;
+    font-size: map-get($font-sizes, "light");
+    font-weight: map-get($font-weights, "light");
+    letter-spacing: 0.8px;
+    line-height: 18px;
+    overflow-wrap: anywhere;
+
+    &Server {
+        @extend .userNameServer;
+        font-weight: map-get($font-weights, "light");
+
+        &:hover {
+            cursor: default;
+        }
+    }
+}

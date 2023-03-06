@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+$primary-font-style: "Roboto", sans-serif;
+
+$grayscale-black: #000000;
+$grayscale-white: #ffffff;
+
+$primary-color: #36393f;
+$secondary-color: #2f3136;
+
+$primary-font-color: #c8d3e9;
+
+$border-color: #23252a;
+
+$input-color: #40444b;
+
+$avatar-color: #ea4548;
+
+$font-weights: (
+    "thin": 100,
+    "semi-light": 200,
+    "light": 300,
+    "regular": 400,
+    "medium": 500,
+    "semi-bold": 600,
+    "bold": 700,
+    "semi-heavy": 800,
+    "heavy": 900,
+) !default;
+
+$font-sizes: (
+    "thin": 12px,
+    "light": 14px,
+    "regular": 16px,
+    "medium": 24px,
+    "big": 32px,
+) !default;
+
+$breakpoints: (
+    "super-smaller": 450px,
+    "smaller": 672px,
+    "small": 1024px,
+    "large-min": 1148px,
+    "large": 1440px,
+    "large-max": 1920px,
+) !default;

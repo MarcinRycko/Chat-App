@@ -1,0 +1,50 @@
+@import "../../styles/variables";
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+    width: 150px;
+    background-color: trasparent;
+}
+
+.label {
+    padding: 5px 0 2px 5px;
+    color: $primary-font-color;
+    font-size: map-get($font-sizes, "thin");
+    font-weight: map-get($font-weights, "light");
+}
+
+.input {
+    width: 100px;
+    height: 30px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    color: $primary-font-color;
+    background-color: $input-color;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.inputWrapper {
+    display: flex;
+}
+
+.button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 30px;
+    padding: 10px;
+    border: none;
+    border-left: solid 1px $primary-color;
+    border-radius: 0 5px 5px 0;
+    color: $primary-font-color;
+    background-color: $input-color;
+    &:hover {
+        cursor: pointer;
+    }
+}
