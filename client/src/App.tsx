@@ -1,6 +1,6 @@
 import io from 'socket.io-client';
 import { Socket } from 'socket.io-client';
-import { ChatContextProvider } from './Context/ChatContextProvider';
+import { ChatContextProvider } from './context/ChatContextProvider';
 import ChatApp from './components/ChatApp/ChatApp';
 import './styles/global.css';
 

@@ -1,9 +1,11 @@
+import { getLocalStorageItem, setLocalStoregeItem } from './localStorageUtils';
+
 export const getUsername = () => {
-  const user: string | null = localStorage.getItem('username');
+  const user: string | null = getLocalStorageItem('username');
   if (user) {
     return user;
   }
   const newUser: string = `User${Math.floor(Math.random() * 999)}`;
-  localStorage.setItem('username', newUser);
+  setLocalStoregeItem('username', newUser);
   return newUser;
 };

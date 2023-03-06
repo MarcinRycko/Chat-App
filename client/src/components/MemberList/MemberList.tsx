@@ -1,4 +1,4 @@
-import { useMemberListContext } from '../../Context/hooks';
+import { useMemberListContext } from '../../context/hooks';
 import User from '../User/User';
 import { MemberListProps } from './types';
 import styles from './memberlist.module.scss';

@@ -22,36 +22,39 @@ export const ChatContextProvider = ({
   children: ReactNode;
   socket: Socket;
 }) => {
-  const { state, methods } = useChat(socket);
+  const {
+    state: { username, memberList, messages, messageInputValue },
+    methods: { handleUsername, handleMessageInput, handleSendMessage },
+  } = useChat(socket);
 
   const userNamevalue: TUserNameContext = useMemo(() => {
     return {
-      username: state.username,
-      handleUsername: methods.handleUsername,
+      username,
+      handleUsername,
     };
-  }, [state.username]);
+  }, [username, handleUsername]);
 
   const memberListValue: TMemberListContext = useMemo(() => {
     return {
-      memberList: state.memberList,
+      memberList,
     };
-  }, [state.memberList]);
+  }, [memberList]);
 
   const messagesValue: TMessagesContext = useMemo(() => {
-    return { messages: state.messages };
-  }, [state.messages]);
+    return { messages };
+  }, [messages]);
 
-  const messageInputValue: TMessageInputContext = useMemo(() => {
+  const messageInputContextValue: TMessageInputContext = useMemo(() => {
     return {
-      messageInputValue: state.messageInputValue,
-      handleInput: methods.handleInput,
-      handleSendMessage: methods.handleSendMessage,
+      messageInputValue,
+      handleMessageInput,
+      handleSendMessage,
     };
-  }, [state.messageInputValue]);
+  }, [messageInputValue, handleMessageInput, handleSendMessage]);
 
   return (
     <UserNameContext.Provider value={userNamevalue}>
-      <MessageInputContext.Provider value={messageInputValue}>
+      <MessageInputContext.Provider value={messageInputContextValue}>
         <MessagesContext.Provider value={messagesValue}>
           <MemberListContext.Provider value={memberListValue}>
             {children}

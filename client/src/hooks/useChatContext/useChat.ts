@@ -1,10 +1,11 @@
 import { useReducer, useEffect } from 'react';
+import { Socket } from 'socket.io-client';
 import { v4 as uuidv4 } from 'uuid';
 import { initialState } from './initialState';
 import { ChatReducer } from './ChatReducer';
-import { Socket } from 'socket.io-client';
-import { TUser, TMessage } from './types';
 import { getUsername } from '../../utils/getUsername';
+import { setLocalStoregeItem } from '../../utils/localStorageUtils';
+import { TUser, TMessage } from './types';
 
 export const useChat = (socket: Socket) => {
   const [state, dispatch] = useReducer(ChatReducer, initialState);
@@ -12,10 +13,10 @@ export const useChat = (socket: Socket) => {
   const handleUsername = (e: React.SyntheticEvent, newUsername: string) => {
     e.preventDefault();
     dispatch({ type: 'HANDLE_USERNAME', payload: newUsername });
-    localStorage.setItem('username', newUsername);
+    setLocalStoregeItem('username', newUsername);
   };
 
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleMessageInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: 'HANDLE_MESSAGE_INPUT', payload: e.target.value });
   };
 
@@ -78,7 +79,7 @@ export const useChat = (socket: Socket) => {
     state,
     methods: {
       handleUsername,
-      handleInput,
+      handleMessageInput,
       handleSendMessage,
     },
   };

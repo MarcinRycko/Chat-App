@@ -7,9 +7,7 @@ import styles from './chatapp.module.scss';
 
 const { wrapper, content, messages } = styles;
 
-type ChatAppProps = {};
-
-const ChatApp: React.FC<ChatAppProps> = () => {
+const ChatApp: React.FC = () => {
   const { handleMemberListDisplay, isMemberListDisplayed } = useMemberList();
 
   return (

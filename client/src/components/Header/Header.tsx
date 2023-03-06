@@ -1,4 +1,4 @@
-import { useUserNameContext } from '../../Context/hooks';
+import { useUserNameContext } from '../../context/hooks';
 import UsernameInput from './../UsernameInput/UsernameInput';
 import { FaUsers } from 'react-icons/fa';
 import { IconContext } from 'react-icons';

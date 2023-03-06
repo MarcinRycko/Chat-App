@@ -15,7 +15,7 @@ export type TUserNameContext = {
 };
 export type TMessageInputContext = {
   messageInputValue: string;
-  handleInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleMessageInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSendMessage: (e: React.SyntheticEvent) => void;
 };
 export type TMessagesContext = {

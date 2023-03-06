@@ -1,4 +1,4 @@
-import { useMessageInputContext } from '../../Context/hooks';
+import { useMessageInputContext } from '../../context/hooks';
 import { IconContext } from 'react-icons';
 import { IoMdSend } from 'react-icons/io';
 import styles from './messageinput.module.scss';
@@ -6,7 +6,7 @@ import styles from './messageinput.module.scss';
 const { wrapper, input, icon, iconWrapper } = styles;
 
 const MessageInput: React.FC = () => {
-  const { handleSendMessage, messageInputValue, handleInput } =
+  const { handleSendMessage, messageInputValue, handleMessageInput } =
     useMessageInputContext();
 
   return (
@@ -15,7 +15,7 @@ const MessageInput: React.FC = () => {
         <input
           className={input}
           value={messageInputValue}
-          onChange={handleInput}
+          onChange={handleMessageInput}
         ></input>
         <button className={iconWrapper}>
           <IconContext.Provider value={{ className: icon }}>

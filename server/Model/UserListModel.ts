@@ -12,7 +12,7 @@ export default class UsersList {
     if (this.isUserExist(id)) {
       return this.usersList.find((user) => user.id === id);
     } else {
-      console.log(`User with id:${id} is not exist`);
+      throw new Error(`User with id:${id} is not exist`);
     }
   };
 
@@ -20,7 +20,7 @@ export default class UsersList {
     if (!this.isUserExist(id)) {
       this.usersList.push({ username, id });
     } else {
-      console.log(`User with id:${id} is already exist`);
+      throw new Error(`User with id:${id} is already exist`);
     }
   };
 
@@ -28,7 +28,7 @@ export default class UsersList {
     if (this.isUserExist(id)) {
       this.usersList = this.usersList.filter((user) => user.id !== id);
     } else {
-      console.log(`User with id:${id} is not exist`);
+      throw new Error(`User with id:${id} is not exist`);
     }
   };
 
