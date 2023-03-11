@@ -1,17 +1,19 @@
-import io from 'socket.io-client';
-import { Socket } from 'socket.io-client';
-import { ChatContextProvider } from './context/ChatContextProvider';
-import ChatApp from './components/ChatApp/ChatApp';
+import Chat from './pages/Chat/Chat';
+import Login from './pages/Login/Login';
+import SignUp from './pages/SignUp/SignUp';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/global.css';
-
-const socket: Socket = io(`http://${window.location.hostname}:5000`);
 
 const App: React.FC = () => {
   return (
     <>
-      <ChatContextProvider socket={socket}>
-        <ChatApp />
-      </ChatContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Chat />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };

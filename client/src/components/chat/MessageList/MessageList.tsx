@@ -1,4 +1,4 @@
-import { useMessagesContext } from '../../context/hooks';
+import { useMessagesContext } from '../../../Context/hooks';
 import Message from '../Message/Message';
 import styles from './messagelist.module.scss';
 

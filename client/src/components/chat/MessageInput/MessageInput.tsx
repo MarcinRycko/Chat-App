@@ -1,4 +1,4 @@
-import { useMessageInputContext } from '../../context/hooks';
+import { useMessageInputContext } from '../../../Context/hooks';
 import { IconContext } from 'react-icons';
 import { IoMdSend } from 'react-icons/io';
 import styles from './messageinput.module.scss';

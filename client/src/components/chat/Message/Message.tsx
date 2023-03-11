@@ -1,6 +1,6 @@
 import { FaUser } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
-import { getDate } from '../../utils/getDate';
+import { getDate } from '../../../utils/getDate';
 import { MessageProps } from './types';
 import styles from './message.module.scss';
 
