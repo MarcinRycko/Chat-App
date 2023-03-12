@@ -1,20 +1,24 @@
 import { Server, Socket } from 'socket.io';
-import { usersList, db } from '../server';
+import { usersList } from '../server';
+import { MessageModel } from '../Model/MessageModel/MessageModel';
+import { IMessageModel } from '../Model/MessageModel/types';
 import { v4 as uuidv4 } from 'uuid';
 
 export class ConnectionController {
   private socket: Socket;
   private io: Server;
+  private messagesDB: IMessageModel;
   constructor(socket: Socket, io: Server) {
     this.socket = socket;
     this.io = io;
+    this.messagesDB = new MessageModel();
   }
   public connectionStart = async () => {
     this.socket.on('join', this.handleUserJoin);
     this.socket.on('sendMessage', this.handleMessage);
     this.socket.on('disconnect', this.handleDisconnect);
     try {
-      const messages = await db.getMessages();
+      const messages = await this.messagesDB.getMessages();
       this.io.emit('getMessages', JSON.stringify(messages));
     } catch {
       (err: Error) => {
@@ -25,8 +29,8 @@ export class ConnectionController {
 
   private handleMessage = async (message: string) => {
     try {
-      await db.setMessages(JSON.parse(message));
-      const messages = await db.getMessages();
+      await this.messagesDB.setMessages(JSON.parse(message));
+      const messages = await this.messagesDB.getMessages();
       this.io.emit('getMessages', JSON.stringify(messages));
     } catch {
       (err: Error) => {

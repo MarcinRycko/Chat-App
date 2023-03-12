@@ -5,7 +5,6 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import SocketController from './Controller/SocketController';
 import UsersList from './Model/UserListModel';
-import { Database } from './Model/DatabaseModel';
 dotenv.config();
 
 class ServerIO {
@@ -37,7 +36,6 @@ class ServerIO {
 const socketServer = new ServerIO(process.env.PORT || 5000);
 socketServer.start();
 
-export const db = new Database();
 export const usersList = new UsersList();
 
 const io = new SocketController(socketServer.io);

@@ -1,8 +1,9 @@
-import { dbConfig } from '../Config/db';
+import { dbConfig } from '../../Config/db';
 import mysql, { Pool } from 'mysql2';
+import { IMessage, IMessageModel } from './types';
 
-export class Database {
-  private pool: Pool;
+export class MessageModel implements IMessageModel {
+  private readonly pool: Pool;
   constructor() {
     this.pool = mysql.createPool(dbConfig);
   }
@@ -13,19 +14,12 @@ export class Database {
         .promise()
         .query('SELECT * FROM messages');
       return messages;
-    } catch {
-      (err: Error) => {
-        throw new Error(err.message);
-      };
+    } catch (error) {
+      if (error instanceof Error) throw new Error(error.message);
     }
   };
 
-  public setMessages = async (newMessage: {
-    username: string;
-    message: string;
-    createdAt: number;
-    id: string;
-  }) => {
+  public setMessages = async (newMessage: IMessage) => {
     const { username, message, createdAt, id } = newMessage;
     try {
       await this.pool
@@ -34,10 +28,8 @@ export class Database {
           `INSERT INTO messages (id, username, message, createdAt) VALUES (?, ?, ?, ?)`,
           [id, username, message, createdAt]
         );
-    } catch {
-      (err: Error) => {
-        throw new Error(err.message);
-      };
+    } catch (error) {
+      if (error instanceof Error) throw new Error(error.message);
     }
   };
 }
